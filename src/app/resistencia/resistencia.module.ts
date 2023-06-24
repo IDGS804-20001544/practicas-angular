@@ -7,6 +7,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ResistenciaComponent } from './resistencia.component';
+import {MatSelect, MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { ResistenciaComponent } from './resistencia.component';
     MatIconModule,
     MatRadioModule,
     MatFormFieldModule,
+    MatSelectModule,
     FormsModule,
   ],
   exports:[

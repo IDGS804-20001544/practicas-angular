@@ -1,1 +1,62 @@
 <h1>Calculo de Resistencias</h1>
+<div class="container">
+  <div class="band-toler-select">
+     
+
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="valor1" name="band">
+        <option [value]="''" selected disabled>Selecciona</option>
+        <option *ngFor="let banda of bandas" [value]="banda.valor" [style.background-color]="banda.color" [style.color]="banda.textoColor">
+          {{banda.vista}}
+        </option>
+      </select>
+
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="valor2" name="band">
+        <option [value]="''" selected disabled>Selecciona</option>
+        <option *ngFor="let banda of bandas" [value]="banda.valor" [style.background-color]="banda.color" [style.color]="banda.textoColor">
+          {{banda.vista}}
+        </option>
+      </select>
+
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="valor3" name="band">
+        <option [value]="''" selected disabled>Selecciona</option>
+        <option *ngFor="let banda of bandas" [value]="banda.valor" [style.background-color]="banda.color" [style.color]="banda.textoColor">
+          {{banda.vista}}
+        </option>
+      </select>
+  
+  </div> 
+  <div class="radio-group">
+    <div class="radio-option">
+      <input type="radio" [(ngModel)]="tolerancia" name="toler" id="oro" value="oro">
+      <label for="oro">Oro</label>
+    </div>
+    <div class="radio-option">
+      <input type="radio" [(ngModel)]="tolerancia" name="toler" id="plata" value="plata">
+      <label for="plata">Plata</label>
+    </div>
+  </div>
+<button type="button" (click)="calcularResistencia()" class="btn btn-primary">Calcular</button>
+
+<table class="table" (click)="calcularResistencia()">
+  <thead>
+    <tr>
+      <th scope="col" >C1</th>
+      <th scope="col">C2</th>
+      <th scope="col">C3</th>
+      <th scope="col">Valor</th>
+      <th scope="col">+</th>
+      <th scope="col">-</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td [style.background-color]="valor1">{{banda1}}</td>
+      <td [style.background-color]="valor2">{{banda2}}</td>
+      <td [style.background-color]="valor3">{{banda3}}</td>
+      <td>{{resistencia}}</td>
+      <td>{{maximo}}</td>
+      <td>{{minimo}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>   
