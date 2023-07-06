@@ -1,0 +1,15 @@
+ #container img{
+    display: flex;
+    align-items: center;
+  }
+  
+  #container h1 {
+    margin-right: 10px; /* Espacio entre el título y la imagen */
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    max-width: 600px;
+  }
+  

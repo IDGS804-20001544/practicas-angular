@@ -1,0 +1,78 @@
+
+<img id="container img" src="https://marketplace.canva.com/EAFL83RhIBs/1/0/1600w/canva-yellow-circular-cute-illustration-pizza-shop-logo-fk__9xNpX4U.jpg" alt="Pizza Shop Logo" style="width: 100px;">
+<div class="container">
+  <h1>Pizzas</h1>
+      <mat-form-field >
+        <input matInput [(ngModel)]="nombre" type="text" placeholder="Nombre">
+      </mat-form-field>
+      <br>
+    <mat-form-field>
+      <input matInput [(ngModel)]="direccion"  type="text" placeholder="Direccion">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput [(ngModel)]="telefono"  type="number" placeholder="Telefono">
+      </mat-form-field>
+    <br>
+    <mat-radio-group [(ngModel)]="tamanoPizzas">
+      <h2>Tamaño de Pizzas</h2>
+      <mat-radio-button value="chica">chica 40$</mat-radio-button><br>
+      <mat-radio-button  value="mediana">mediana 80$</mat-radio-button><br>
+      <mat-radio-button  value="grande">grande 120$</mat-radio-button>
+    </mat-radio-group>
+<br>
+<h2>Ingredientes</h2>
+    <div *ngFor="let ingrediente of ingredientes">
+      <label>
+        <input type="checkbox" [(ngModel)]="ingrediente.checked"> {{ ingrediente.nombre }} ({{ ingrediente.precio }}$)
+      </label>
+    </div>
+
+    <br>
+    <mat-form-field>
+    <input matInput [(ngModel)]="numPizzas"  type="number" placeholder="Num de Pizzas" >
+   </mat-form-field>
+   <br>
+   <button mat-raised-button color="primary" (click)=" calcularTotal()">Agregar</button>
+
+   <br>
+
+   <table>
+    <thead>
+      <tr>
+        <th>Tamaño</th>
+        <th>Ingredientes</th>
+        <th>Número de Pizzas</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+        <td>{{ pedido.tamano }}</td>
+        <td>{{ pedido.ingredientes }}</td>
+        <td>{{ pedido.numPizzas }}</td>
+        <td>{{ pedido.subtotal }}</td>
+        <td><button mat-button color="warn" (click)="eliminarPedido(pedido.id)">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+<h1>{{ nombre }} su total a pagar es {{ calcularTotalFinal() }}</h1>
+<br>
+<button mat-raised-button color="warn" (click)="nuevaOrden()">Nuevo Pedido</button>
+<br>
+<h1>Ventas del dia</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.subtotal }}</td>
+  </tbody>
+</table>
+<h1>El total del dia es: {{calcularTotalFinal2()}}</h1>
